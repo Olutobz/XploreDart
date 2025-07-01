@@ -1,3 +1,5 @@
+import 'dart:io';
+
 var name = 'Damola Olutoba Onikoyi';
 var year = 2025;
 var age = 15;
@@ -72,5 +74,22 @@ void printRole(UserRole role) {
     case UserRole.guest:
       print('No privileges');
       break;
+  }
+}
+
+const oneSecond = Duration(seconds: 1);
+
+Future<void> printWithDelay(String message) async {
+  await Future.delayed(oneSecond);
+  print(message);
+}
+
+Future<bool> fileContains(String path, String needle) async {
+  try {
+    var haystack = await File(path).readAsString();
+    return haystack.contains(needle);
+  } on FileSystemException catch (exception) {
+    print('Exception: $exception');
+    return false;
   }
 }
