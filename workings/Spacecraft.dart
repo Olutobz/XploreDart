@@ -16,9 +16,17 @@ class Spacecraft {
     var launchDate = this.launchDate;
     if (launchDate != null) {
       int years = DateTime.now().difference(launchDate).inDays ~/ 365;
-      print('Launched $launchYear ($years years ago)');
+      print('We launched in the year $launchYear, which is ($years years ago)');
     } else {
       print('Not yet launched');
     }
   }
+}
+
+void main() {
+  var voyager = Spacecraft("Voyager I", DateTime(1975, 9, 6));
+  voyager.describe();
+
+  var voyager2 = Spacecraft("Voyager II", DateTime(1983, 4, 11));
+  voyager2.describe();
 }
