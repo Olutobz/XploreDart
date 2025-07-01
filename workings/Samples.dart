@@ -5,7 +5,7 @@ var hasGraduated = true;
 var hobbies = ['Swimming', 'Football', 'Movies', 'Reading'];
 var places = {
   'city': ['San Francisco'],
-  'country': ['United States Of America'],
+  'country': ['USA'],
   'anotherCity': ['Paris'],
   'anotherCountry': ['France'],
 };
@@ -33,14 +33,14 @@ void main() {
     print(age);
   }
 
-  int fibonacci(int n) {
-    if (n == 0 || n == 1) {
-      return n;
-    }
+  hobbies.where((name) => name.contains('Swim')).forEach(print);
+  hobbies.where((name) => name.contains('Foot')).forEach(print);
+}
 
-    return fibonacci(n - 2) + fibonacci(n - 1);
+int fibonacci(int n) {
+  if (n == 0 || n == 1) {
+    return n;
   }
 
-  hobbies.where((name) => name.contains('swim')).forEach(print);
-  hobbies.where((name) => name.contains('Foot')).forEach(print);
+  return fibonacci(n - 2) + fibonacci(n - 1);
 }
